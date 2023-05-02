@@ -1,5 +1,5 @@
 {% set name = "perspective_parquet" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3ea67a9a7abdcaa0a5e16f5ddbe8202cbd71db4cc7ff66ee5f8263d42f15ef58
+  sha256: bca786ccd29321305dd6b62d686827c76f4905a43e2d2d8d0474f5cd827bfe7c
 
 build:
   number: 0
