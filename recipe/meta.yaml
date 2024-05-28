@@ -31,6 +31,10 @@ requirements:
 test:
   imports:
     - perspective_parquet
+  requires:
+    - pip
+  commands:
+    - pip check
 
 outputs:
   - name: perspective_parquet
