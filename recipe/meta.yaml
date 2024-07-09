@@ -10,7 +10,7 @@ source:
   sha256: 71b115848b3a1d253545ee1f9705a0a2186060af74fa7aa427edd96b91d32be9
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
 
@@ -25,6 +25,7 @@ requirements:
     - jupyterlab >=3.5
   run:
     - python >=3.7
+    - numpy <2
     - jupyterlab >=3.5
     - perspective >=2,<3
 
