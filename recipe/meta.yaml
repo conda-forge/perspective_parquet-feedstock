@@ -6,17 +6,17 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 71b115848b3a1d253545ee1f9705a0a2186060af74fa7aa427edd96b91d32be9
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
     - nodejs
     - yarn
@@ -24,7 +24,7 @@ requirements:
     - hatch-jupyter-builder
     - jupyterlab >=3.5
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - numpy <2
     - jupyterlab >=3.5
     - perspective >=2,<3
@@ -34,6 +34,7 @@ test:
     - perspective_parquet
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
 
@@ -44,9 +45,9 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python
+        - python {{ python_min }}
       run:
-        - python
+        - python >={{ python_min }}
         - {{ pin_subpackage("perspective_parquet", exact=True) }}
 
 about:
